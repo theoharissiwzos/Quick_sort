@@ -1,15 +1,17 @@
-# Quick_sort
+def quick_sort(arr):
+    """
+    Sorts the given array in ascending order using the Quick Sort algorithm.
 
-def bubble_sort(arr):
-    n = len(arr)
-
-    for i in range(n):
-        for j in range(0, n-i-1):
-            if arr[j] > arr[j+1]:
-                arr[j], arr[j+1] = arr[j+1], arr[j]
-
-if _name_ == '_main_':
-
-    arr = [5, 2, 1, 8, 4]
-    bubble_sort(arr)
-    print(arr)
+ 
+    if len(arr) <= 1:
+        return arr
+    else:
+        pivot = arr[0]
+        left = []
+        right = []
+        for i in range(1, len(arr)):
+            if arr[i] < pivot:
+                left.append(arr[i])
+            else:
+                right.append(arr[i])
+        return quick_sort(left) + [pivot] + quick_sort(right)
