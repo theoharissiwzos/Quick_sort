@@ -1,7 +1,5 @@
 def quick_sort(arr):
     """
-    Sorts the given array in ascending order using the Quick Sort algorithm.
-
  
     if len(arr) <= 1:
         return arr
@@ -15,3 +13,14 @@ def quick_sort(arr):
             else:
                 right.append(arr[i])
         return quick_sort(left) + [pivot] + quick_sort(right)
+
+
+# Read numbers from the file
+with open("num_list.txt", "r") as file:
+    numbers = [int(line.strip()) for line in file.readlines()]
+
+# Sort the numbers using Quick Sort
+sorted_numbers = quick_sort(numbers)
+
+# Print the sorted numbers
+print(sorted_numbers)
